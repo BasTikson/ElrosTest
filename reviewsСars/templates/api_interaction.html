@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Interaction</title>
+    <!-- Подключаем jQuery и DataTables -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+    <!-- Подключаем наш JavaScript-файл -->
+    <script type="text/javascript" src="{% static 'js/datatables.js' %}"></script>
+</head>
+<body>
+    <h2>API Interaction</h2>
+    <p>You are now logged in and can interact with the API.</p>
+
+    <!-- Таблица для стран -->
+    <h3>Countries</h3>
+    <table id="countries-table" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <!-- Добавьте другие столбцы по необходимости -->
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Данные будут загружены через AJAX -->
+        </tbody>
+    </table>
+
+    <!-- Таблица для производителей -->
+    <h3>Manufacturers</h3>
+    <table id="manufacturers-table" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <!-- Добавьте другие столбцы по необходимости -->
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Данные будут загружены через AJAX -->
+        </tbody>
+    </table>
+
+    <!-- Таблица для автомобилей -->
+    <h3>Cars</h3>
+    <table id="cars-table" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Model</th>
+                <!-- Добавьте другие столбцы по необходимости -->
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Данные будут загружены через AJAX -->
+        </tbody>
+    </table>
+
+    <!-- Таблица для комментариев -->
+    <h3>Comments</h3>
+    <table id="comments-table" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Text</th>
+                <!-- Добавьте другие столбцы по необходимости -->
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Данные будут загружены через AJAX -->
+        </tbody>
+    </table>
+</body>
+</html>
