@@ -10,7 +10,8 @@ from rest_framework import viewsets
 from .models import Country
 from django.utils import timezone
 from rest_framework.authentication import TokenAuthentication
-from .renderers import CSVStudentDataRenderer, ExcelStudentDataRenderer
+from .renderers import CSVStudentDataRenderer, ExcelStudentDataRenderer, CSVStudentDataRendererDetail, ExcelStudentDataRendererDetail
+
 
 class IsAuthenticated(permissions.BasePermission):
     def has_permission(self, request, view):
@@ -44,6 +45,15 @@ class CountryViewSet(viewsets.ModelViewSet):
         now = timezone.now()
         file_name = f"Country_{now:%Y-%m-%d_%H-%M-%S}.{request.accepted_renderer.format}"
         serializer = CountrySerializer(queryset, many=True)
+        response = Response(serializer.data, headers={"Content-Disposition": f'attachment; filename="{file_name}"'})
+        return response
+
+    @action(detail=True, methods=['get'], renderer_classes=[CSVStudentDataRendererDetail, ExcelStudentDataRendererDetail])
+    def download_file_detail(self, request, pk=None):
+        queryset = self.get_object()
+        now = timezone.now()
+        file_name = f"Country_{now:%Y-%m-%d_%H-%M-%S}.{request.accepted_renderer.format}"
+        serializer = CountrySerializer(queryset)
         response = Response(serializer.data, headers={"Content-Disposition": f'attachment; filename="{file_name}"'})
         return response
 
@@ -90,6 +100,16 @@ class CommentsViewSet(viewsets.ModelViewSet):
         now = timezone.now()
         file_name = f"Country_{now:%Y-%m-%d_%H-%M-%S}.{request.accepted_renderer.format}"
         serializer = CommentsSerializer(queryset, many=True)
+        response = Response(serializer.data, headers={"Content-Disposition": f'attachment; filename="{file_name}"'})
+        return response
+
+
+    @action(detail=True, methods=['get'], renderer_classes=[CSVStudentDataRenderer, ExcelStudentDataRenderer])
+    def download_file_detail(self, request, pk=None):
+        queryset = self.get_object()
+        now = timezone.now()
+        file_name = f"Country_{now:%Y-%m-%d_%H-%M-%S}.{request.accepted_renderer.format}"
+        serializer = CommentsSerializer(queryset)
         response = Response(serializer.data, headers={"Content-Disposition": f'attachment; filename="{file_name}"'})
         return response
 

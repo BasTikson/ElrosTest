@@ -4,11 +4,10 @@ from .views import CountryViewSet, ManufacturersViewSet, CarsViewSet, CommentsVi
 
 router = DefaultRouter()
 router.register(r'countries', CountryViewSet, basename='country')
-router.register(r'manufacturers', ManufacturersViewSet)
-router.register(r'cars', CarsViewSet)
-router.register(r'comments', CommentsViewSet)
+router.register(r'manufacturers', ManufacturersViewSet, basename='manufacture')
+router.register(r'cars', CarsViewSet, basename='car')
+router.register(r'comments', CommentsViewSet, basename='comment')
 
 urlpatterns = [
     path('', include(router.urls)),
-    # path('export/', export_data, name='export_data'),
 ]
