@@ -3,7 +3,7 @@ from rest_framework.routers import DefaultRouter
 from .views import CountryViewSet, ManufacturersViewSet, CarsViewSet, CommentsViewSet
 
 router = DefaultRouter()
-router.register(r'countries', CountryViewSet)
+router.register(r'countries', CountryViewSet, basename='country')
 router.register(r'manufacturers', ManufacturersViewSet)
 router.register(r'cars', CarsViewSet)
 router.register(r'comments', CommentsViewSet)
