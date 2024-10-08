@@ -1,11 +1,11 @@
-from rest_framework import viewsets, permissions
+from rest_framework import viewsets, permissions, status
 from rest_framework.authentication import TokenAuthentication
 from .models import Country, Manufacturers, Cars, Comments
-
 from .serializers.serializers_countrys import CountrySerializer
 from .serializers.serializers_manufacturers import ManufacturersSerializer
 from .serializers.serializers_cars import CarsSerializer
 from .serializers.serializers_comments import CommentsSerializer
+from rest_framework.response import Response
 
 class IsAuthenticated(permissions.BasePermission):
     def has_permission(self, request, view):
@@ -24,14 +24,13 @@ class IsAuthenticatedComments(permissions.BasePermission):
 
         return request.user and request.user.is_authenticated
 
-# ToDo: Реализовать логику авторизации, может быть
-# ToDo: Поиграться немного с полями в серелизаторах, чтобы оно не скопом нам все вываливало
 
 class CountryViewSet(viewsets.ModelViewSet):
     queryset = Country.objects.all()
     serializer_class = CountrySerializer
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
+
 
 class ManufacturersViewSet(viewsets.ModelViewSet):
     queryset = Manufacturers.objects.all()

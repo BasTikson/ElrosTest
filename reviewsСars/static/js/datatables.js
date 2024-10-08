@@ -1,42 +1,29 @@
-// static/js/datatables.js
-$(document).ready(function() {
-    // Инициализация таблицы стран
-    $('#countries-table').DataTable({
-        ajax: '/api/countries/',
-        columns: [
-            { data: 'id' },
-            { data: 'name' },
-            // Добавьте другие столбцы по необходимости
-        ]
-    });
+$(document).ready(function () {
+    function loadDataAndInitDataTable() {
+        $.ajax({
+            url: "/api/countries/",
+            method: 'GET',
+            dataType: 'json',
+            success: function (data) {
 
-    // Инициализация таблицы производителей
-    $('#manufacturers-table').DataTable({
-        ajax: '/api/manufacturers/',
-        columns: [
-            { data: 'id' },
-            { data: 'name' },
-            // Добавьте другие столбцы по необходимости
-        ]
-    });
+                $('#countriesTable').DataTable({
+                    data: data,
+                    columns: [
+                        { data: 'id' },
+                        { data: 'name' },
+                       
+                    ]
 
-    // Инициализация таблицы автомобилей
-    $('#cars-table').DataTable({
-        ajax: '/api/cars/',
-        columns: [
-            { data: 'id' },
-            { data: 'model' },
-            // Добавьте другие столбцы по необходимости
-        ]
-    });
+                });
+            },
+            error: function (xhr, status, error) {
+                console.error('Ошибка при загрузке данных: ', error);
+            }
+        });
+    }
+    loadDataAndInitDataTable()
 
-    // Инициализация таблицы комментариев
-    $('#comments-table').DataTable({
-        ajax: '/api/comments/',
-        columns: [
-            { data: 'id' },
-            { data: 'text' },
-            // Добавьте другие столбцы по необходимости
-        ]
-    });
 });
+
+
+

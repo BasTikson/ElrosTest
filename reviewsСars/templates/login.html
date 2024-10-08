@@ -1,23 +1,82 @@
-<!-- templates/login.html -->
 <!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> Вход </title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/min.css' %}">
 </head>
 <body>
-    <h2>Login</h2>
-    {% if error %}
-        <p style="color: red;">{{ error }}</p>
-    {% endif %}
-    <form method="post">
-        {% csrf_token %}
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required><br><br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br><br>
-        <button type="submit">Login</button>
-    </form>
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <div class="login100-pic js-tilt" data-tilt=""
+                    style="will-change: transform; transform: perspective(300px) rotateX(0deg) rotateY(0deg);">
+                    <img id='cat' src="" alt="Тут должен был быть котик...">
+                </div>
+                <form class="login100-form validate-form">
+                    <span class="login100-form-title" style="padding-bottom: 2.5vh;">
+                        Вход
+                    </span>
+                    <div class="wrap-input100 validate-input">
+                        <input class="input100" name="username" id="loginAdmin" placeholder="Логин" type="text">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input">
+                        <input id="passwordAdmin" name="password" class="input100" placeholder="Пароль" type="password">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    {% csrf_token %}
+                    <div class="container-login100-form-btn" style="padding-top: 2.5vh;">
+                        <button class="login100-form-btn" id="login" type="button">
+                            Войти
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Подключение jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Подключение DataTable JS -->
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <!-- Подключение Toastify JS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+
+    <script>
+        const url = `https://api.thecatapi.com/v1/images/search`;
+        const api_key = "live_cdZwBgF57hjuhPLaI3n9arl5YmUtdIxcjTjaQ2qRCwW8u17anVx4OU81MaSq83JF"
+
+        fetch(url, {
+            headers: {
+                'x-api-key': api_key
+            }
+        })
+            .then((response) => {
+                return response.json();
+            })
+            .then((data) => {
+                let imagesData = data;
+                imagesData.map(function (imageData) {
+
+                    let image = document.getElementById('cat');
+                    image.src = `${imageData.url}`;
+                });
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    </script>
+    <script src="{% static 'js/login.js' %}"></script>
 </body>
-</html>
