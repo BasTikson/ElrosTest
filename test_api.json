@@ -1,0 +1,651 @@
+{
+    "info": {
+        "_postman_id": "a53def3f-b057-474e-b7dd-7dafe743686e",
+        "name": "Elros API Collection",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "_exporter_id": "38835123"
+    },
+    "item": [
+        {
+            "name": "Создание страны",
+            "request": {
+                "auth": {
+                    "type": "oauth2",
+                    "oauth2": [
+                        {
+                            "key": "addTokenTo",
+                            "value": "header",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "Token 6f4640fe82d807e5a6e5f8d736c81162a30e5b66",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"name\": \"Магадан\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8000/api/countries/",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "countries",
+                        ""
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Получение списка всех стран",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8000/api/countries/",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "countries",
+                        ""
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Экспорт списка всех стран xlsx/csv",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8000/api/countries/download_file/?format=csv",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "countries",
+                        "download_file",
+                        ""
+                    ],
+                    "query": [
+                        {
+                            "key": "format",
+                            "value": "xlsx",
+                            "disabled": true
+                        },
+                        {
+                            "key": "format",
+                            "value": "csv"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Получение страны по ID",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8000/api/countries/1/",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "countries",
+                        "1",
+                        ""
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Обновление страны",
+            "request": {
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "Token 6f4640fe82d807e5a6e5f8d736c81162a30e5b66",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"name\": \"Российская Федерация\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8000/api/countries/1/",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "countries",
+                        "1",
+                        ""
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Удаление страны",
+            "request": {
+                "method": "DELETE",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Token 6f4640fe82d807e5a6e5f8d736c81162a30e5b66",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:8000/api/countries/1/",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "countries",
+                        "1",
+                        ""
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Создание производителя",
+            "request": {
+                "auth": {
+                    "type": "oauth2",
+                    "oauth2": [
+                        {
+                            "key": "addTokenTo",
+                            "value": "header",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "Token 6f4640fe82d807e5a6e5f8d736c81162a30e5b66",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"name\": \"Toyota\",\n    \"country\": 1\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8000/api/manufacturers/",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "manufacturers",
+                        ""
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Получение списка всех производителей",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8000/api/manufacturers/",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "manufacturers",
+                        ""
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Получение производителя по ID",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8000/api/manufacturers/1/",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "manufacturers",
+                        "1",
+                        ""
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Обновление производителя",
+            "request": {
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "Token 6f4640fe82d807e5a6e5f8d736c81162a30e5b66",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"name\": \"Honda\",\n    \"country\": 1\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8000/api/manufacturers/1/",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "manufacturers",
+                        "1",
+                        ""
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Удаление производителя",
+            "request": {
+                "method": "DELETE",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Token 6f4640fe82d807e5a6e5f8d736c81162a30e5b66",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:8000/api/manufacturers/1/",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "manufacturers",
+                        "1",
+                        ""
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Создание автомобиля",
+            "request": {
+                "auth": {
+                    "type": "oauth2",
+                    "oauth2": [
+                        {
+                            "key": "addTokenTo",
+                            "value": "header",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "Token 6f4640fe82d807e5a6e5f8d736c81162a30e5b66",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"name\": \"Camry\",\n    \"manufacturer\": 1,\n    \"start_year\": \"2020-01-01\",\n    \"end_year\": null\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8000/api/cars/",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "cars",
+                        ""
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Получение списка всех автомобилей",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8000/api/cars/",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "cars",
+                        ""
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Получение автомобиля по ID",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8000/api/cars/1/",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "cars",
+                        "1",
+                        ""
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Обновление автомобиля",
+            "request": {
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "Token 6f4640fe82d807e5a6e5f8d736c81162a30e5b66",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"name\": \"Corolla\",\n    \"manufacturer\": 1,\n    \"start_year\": \"2021-01-01\",\n    \"end_year\": null\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8000/api/cars/1/",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "cars",
+                        "1",
+                        ""
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Удаление автомобиля",
+            "request": {
+                "method": "DELETE",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Token 6f4640fe82d807e5a6e5f8d736c81162a30e5b66",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:8000/api/cars/1/",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "cars",
+                        "1",
+                        ""
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Создание комментария",
+            "request": {
+                "auth": {
+                    "type": "oauth2",
+                    "oauth2": [
+                        {
+                            "key": "addTokenTo",
+                            "value": "header",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "Token 6f4640fe82d807e5a6e5f8d736c81162a30e5b66",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"email_autor\": \"user@example.com\",\n    \"car\": 1,\n    \"comment\": \"Отличный автомобиль!\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8000/api/comments/",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "comments",
+                        ""
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Получение списка всех комментариев",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8000/api/comments/",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "comments",
+                        ""
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Получение комментария по ID",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8000/api/comments/1/",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "comments",
+                        "1",
+                        ""
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Обновление комментария",
+            "request": {
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "Token 6f4640fe82d807e5a6e5f8d736c81162a30e5b66",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"email_autor\": \"user@example.com\",\n    \"car\": 1,\n    \"comment\": \"Очень хороший автомобиль!\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8000/api/comments/1/",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "comments",
+                        "1",
+                        ""
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Удаление комментария",
+            "request": {
+                "method": "DELETE",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Token 6f4640fe82d807e5a6e5f8d736c81162a30e5b66",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:8000/api/comments/1/",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "comments",
+                        "1",
+                        ""
+                    ]
+                }
+            },
+            "response": []
+        }
+    ]
+}
